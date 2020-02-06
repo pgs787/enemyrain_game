@@ -13,8 +13,55 @@ html {
   position: relative;
   display: flex;
   justify-content: center;
+  align-content: center;
+}
+@keyframes fontVisable {
+  from {
+    display: block;
+    opacity: 1;
+  }
+  to {
+    display: none;
+    opacity: 0;
+  }
 }
 
+.bg-start,
+.bg-stop {
+  font-size: 300px;
+  color: white;
+  opacity: 0.5;
+  align-self: center;
+  animation: fontVisable linear 0.7s;
+  margin-bottom: 80px;
+}
+
+.btn-box {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.point-wrapper {
+  position: absolute;
+  right: 10px;
+  display: flex;
+}
+.point-wrapper span {
+  font-size: 30px;
+  color: white;
+}
+
+.life {
+  position: absolute;
+  left: 10px;
+}
+.life img {
+  width: 40px;
+}
+
+/* 고스트 및 영웅 */
 .hero,
 .move-left,
 .move-right {
@@ -50,4 +97,31 @@ html {
 }
 .ghost-dead {
   background-position-x: -45px;
+}
+
+.start-btn,
+.stop-btn {
+  font-size: 30px;
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+.start-btn {
+  background-color: black;
+  color: white;
+}
+.stop-btn {
+  background-color: red;
+}
+
+.gameover {
+  align-self: center;
+  padding-bottom: 80px;
+  position: absolute;
+  font-size: 150px;
+  color: white;
+  font-weight: 600;
+  z-index: 5;
 }
