@@ -7,7 +7,7 @@ html {
 }
 
 #bg {
-  background: url(img/back.png) no-repeat;
+  background: url(http://pgs787.github.io/enemyrain_game/img/back.png) no-repeat;
   width: 800px;
   height: 600px;
   position: relative;
@@ -65,7 +65,7 @@ html {
 .hero,
 .move-left,
 .move-right {
-  background: url(img/man.png) no-repeat;
+  background: url(http://pgs787.github.io/enemyrain_game/img/man.png) no-repeat;
   position: absolute;
   width: 35px;
   height: 55px;
@@ -85,7 +85,8 @@ html {
 
 .ghost,
 .ghost-dead {
-  background: url(img/ghost.png) no-repeat;
+  background: url(http://pgs787.github.io/enemyrain_game/img/ghost.png)
+    no-repeat;
   position: absolute;
   width: 45px;
   height: 55px;
