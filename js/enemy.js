@@ -46,17 +46,15 @@ function ghostCre(ghostMake) {
         ghost.remove();
       }, 50);
     }
-
     // 고스트 바닥에 닿을 때 삭제 및 Game Over
-    if (ghost.offsetTop === 555) {
+    else if (ghost.offsetTop === 555) {
       life.removeChild(life.firstChild);
       ghost.style.top = 545 + "px";
       ghost.className = "ghost-dead";
       setTimeout(function() {
         ghost.remove();
       }, 50);
-    }
-    if (life.childElementCount === 0) {
+    } else if (life.childElementCount === 0) {
       clearInterval(downM);
       clearInterval(ghostMake);
       const div = document.createElement("div");
