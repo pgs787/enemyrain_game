@@ -6,7 +6,6 @@ const stopBtn = document.querySelector(".stop-btn");
 const bgF = document.querySelector(".bg-font");
 const ghostSound = new Audio("audio.wav"); // 고스트 죽음 사운드
 
-const gg = document.querySelector(".ghost");
 const life = document.querySelector(".life");
 const point = document.querySelector(".point");
 
