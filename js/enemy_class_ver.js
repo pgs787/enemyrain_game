@@ -17,14 +17,14 @@ class Enermy {
     this.moveDown();
   }
   // 고스트 생성
-  makeGhost = () => {
+  makeGhost() {
     if (life.childElementCount !== 0) {
       this.random = Math.floor(Math.random() * 760);
       this.ghost.className = "ghost";
       this.ghost.style.left = String(this.random) + "px";
       backGround.appendChild(this.ghost);
     }
-  };
+  }
 
   // 고스트 아래 무빙
   moveDown = () => {

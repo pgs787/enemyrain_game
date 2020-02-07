@@ -23,19 +23,18 @@
 class human {
   constructor() {
     this.hero = document.querySelector(".hero");
-    this.style = window.getComputedStyle(this.hero);
   }
   move(e) {
     const { style, hero } = this;
-    const leftValue = parseInt(style.left);
-    if (e.keyCode === 37 && hero.style.left !== "4px") {
+    // const leftValue = parseInt(style.left);
+    if (e.keyCode === 37 && hero.offsetLeft > 4) {
       hero.className = "move-left";
-      hero.style.left = leftValue - 12 + "px";
+      hero.style.left = hero.offsetLeft - 12 + "px";
     }
 
-    if (e.keyCode === 39 && hero.style.left !== "760px") {
+    if (e.keyCode === 39 && hero.offsetLeft < 760) {
       hero.className = "move-right";
-      hero.style.left = leftValue + 12 + "px";
+      hero.style.left = hero.offsetLeft + 12 + "px";
     }
     window.addEventListener("keyup", function() {
       hero.className = "hero";
