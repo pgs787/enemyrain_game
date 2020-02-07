@@ -23,6 +23,7 @@
 class human {
   constructor() {
     this.hero = document.querySelector(".hero");
+    // this.style = window.getComputedStyle(this.hero);
   }
   move(e) {
     const { style, hero } = this;
