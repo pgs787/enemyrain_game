@@ -1,11 +1,13 @@
 const backGround = document.querySelector("#bg");
 const heroPostion = document.querySelector(".hero");
 const point = document.querySelector(".point");
+let pointCount = 0;
 
 class Enermy {
   constructor() {
     this.ghost = document.createElement("div");
     this.life = document.querySelector(".life");
+
     this.makeGhost();
     this.moveDown();
   }
@@ -23,8 +25,8 @@ class Enermy {
   // 고스트 아래 무빙
   moveDown = () => {
     const { ghost, life } = this;
-    let pointCount = 0,
-      ghostValue = window.getComputedStyle(ghost);
+
+    let ghostValue = window.getComputedStyle(ghost);
 
     let ghostDown = setInterval(() => {
       ghost.style.top = parseInt(ghostValue.top) + 1 + "px";
@@ -35,6 +37,7 @@ class Enermy {
         ghost.offsetLeft + 35 > heroPostion.offsetLeft &&
         ghost.offsetLeft - 35 < heroPostion.offsetLeft
       ) {
+        console.log(point);
         pointCount += 10;
         point.innerText = pointCount;
         // 고스트 사운드
