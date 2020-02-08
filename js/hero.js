@@ -23,10 +23,11 @@
 class human {
   constructor() {
     this.hero = document.querySelector(".hero");
+
     // this.style = window.getComputedStyle(this.hero);
   }
-  move(e) {
-    const { style, hero } = this;
+  move = e => {
+    const { hero } = this;
     // const leftValue = parseInt(style.left);
     if (e.keyCode === 37 && hero.offsetLeft > 4) {
       hero.className = "move-left";
@@ -40,14 +41,12 @@ class human {
     window.addEventListener("keyup", function() {
       hero.className = "hero";
     });
-  }
+  };
 }
 
 function init() {
   const man = new human();
-  window.addEventListener("keydown", e => {
-    man.move(e);
-  });
+  window.addEventListener("keydown", man.move);
 }
 
 init();

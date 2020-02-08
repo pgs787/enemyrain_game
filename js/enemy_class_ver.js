@@ -1,36 +1,30 @@
-// 고스트 Class 버전
 const backGround = document.querySelector("#bg");
 const heroPostion = document.querySelector(".hero");
-const heroStyle = window.getComputedStyle(heroPostion);
-const startBtn = document.querySelector(".start-btn");
-const stopBtn = document.querySelector(".stop-btn");
-const bgF = document.querySelector(".bg-font");
-const ghostSound = new Audio("audio.wav"); // 고스트 죽음 사운드
-
-const life = document.querySelector(".life");
 const point = document.querySelector(".point");
 
 class Enermy {
   constructor() {
     this.ghost = document.createElement("div");
+    this.life = document.querySelector(".life");
     this.makeGhost();
     this.moveDown();
   }
   // 고스트 생성
-  makeGhost() {
+  makeGhost = () => {
+    const { life, ghost } = this;
     if (life.childElementCount !== 0) {
-      this.random = Math.floor(Math.random() * 760);
-      this.ghost.className = "ghost";
-      this.ghost.style.left = String(this.random) + "px";
-      backGround.appendChild(this.ghost);
+      const random = Math.floor(Math.random() * 760);
+      ghost.className = "ghost";
+      ghost.style.left = random + "px";
+      backGround.appendChild(ghost);
     }
-  }
+  };
 
   // 고스트 아래 무빙
   moveDown = () => {
-    const { ghost } = this;
+    const { ghost, life } = this;
     let pointCount = 0,
-      ghostValue = window.getComputedStyle(this.ghost);
+      ghostValue = window.getComputedStyle(ghost);
 
     let ghostDown = setInterval(() => {
       ghost.style.top = parseInt(ghostValue.top) + 1 + "px";
@@ -44,6 +38,7 @@ class Enermy {
         pointCount += 10;
         point.innerText = pointCount;
         // 고스트 사운드
+        const ghostSound = new Audio("audio.wav");
         ghostSound.play();
         ghost.className = "ghost-dead";
 
@@ -66,10 +61,11 @@ class Enermy {
   };
   // Game Over 출력
   gaemEnd = ghostDown => {
+    const { life, ghost } = this;
     if (life.childElementCount === 0) {
       clearInterval(ghostDown);
       clearInterval(this.makeGhost);
-      this.ghost.remove();
+      ghost.remove();
       const div = document.createElement("div");
       div.className = "gameover";
       div.innerHTML = "Game over";
@@ -80,13 +76,10 @@ class Enermy {
   };
 }
 
-function init() {
-  const iter = setInterval(function() {
-    const newEnemy = new Enermy();
-  }, 3000);
-}
+const iter = setInterval(function() {
+  const newEnemy = new Enermy();
+}, 3000);
 
-init();
 // let pointCount = 0;
 // // 고스트 생성
 // function ghostCre(ghostMake) {
